@@ -1,3 +1,5 @@
+This is an automatic translation, may be incorrect in some places. See sources and examples!
+
 # PWM relay
 PWMrelay - a library for generating a low-frequency PWM signal for relays (for PID controllers, etc.)
 - PWM period setting
