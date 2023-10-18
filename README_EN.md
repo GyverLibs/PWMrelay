@@ -43,11 +43,11 @@ PWM relay(pin);
 <a id="usage"></a>
 ## Usage
 ```cpp
-PWMrelay(int pin, bool dir = false, int period = 1000); // pin, relay level HIGH/LOW, period
+PWMrelay(int pin, bool dir = false, unsigned long period = 1000); // pin, relay level HIGH/LOW, period
 void tick(); // tick, call as often as possible, controls the relay itself
 void setPWM(byte duty); // set the PWM value, 0-255. With a value of 0 and 255, the tick is inactive!
 byte getPWM(); // returns the PWM value
-void setPeriod(int period); // set the PWM period to milliseconds. (default 1000ms == 1s)
+void setPeriod(unsigned long period); // set the PWM period to milliseconds. (default 1000ms == 1s)
 int getPeriod(); // get period
 void setLevel(bool level); // set set relay level (HIGH/LOW)
 ```
@@ -82,6 +82,7 @@ void loop() {
 <a id="versions"></a>
 ## Versions
 - v1.2 - minor compatibility bugs fixed
+- v1.2.1 - fixed the problem of setting the period to a value greater than the type int(32,767), i.e. Now the period can be set to more than 32 seconds.
 
 <a id="feedback"></a>
 ## Bugs and feedback

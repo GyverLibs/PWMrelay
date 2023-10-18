@@ -1,6 +1,6 @@
 #include "PWMrelay.h"
 
-PWMrelay::PWMrelay(int pin, bool dir, int period) {
+PWMrelay::PWMrelay(int pin, bool dir, unsigned long period) {
     _pin = pin;
     _dir = !dir;
     pinMode(_pin, OUTPUT);
@@ -20,7 +20,7 @@ void PWMrelay::tick() {
 
 void PWMrelay::setPWM(byte duty) {
     _duty = duty;
-    _activePeriod = (long)_duty * _period / 255;
+    _activePeriod = _duty * (unsigned int)(_period / 255);
     if (_duty == 0) digitalWrite(_pin, _dir);		// выкл
     if (_duty == 255) digitalWrite(_pin, !_dir);	// вкл
 }
@@ -29,12 +29,12 @@ byte PWMrelay::getPWM() {
     return _duty;
 }
 
-void PWMrelay::setPeriod(int period) {
+void PWMrelay::setPeriod(unsigned long period) {
     _period = period;
     PWMrelay::setPWM(_duty);	// на случай "горячей" смены периода
 }
 
-int PWMrelay::getPeriod() {
+unsigned long PWMrelay::getPeriod() {
     return _period;
 }
 

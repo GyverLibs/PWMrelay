@@ -53,11 +53,11 @@ PWMrelay relay(пин);
 <a id="usage"></a>
 ## Использование
 ```cpp
-PWMrelay(int pin, bool dir = false, int period = 1000);	// пин, уровень реле HIGH/LOW, период
+PWMrelay(int pin, bool dir = false, unsigned long period = 1000);	// пин, уровень реле HIGH/LOW, период
 void tick();					// тик, вызывать как можно чаще, сам управляет реле
 void setPWM(byte duty);			// установить величину ШИМ, 0-255. При значении 0 и 255 тик неактивен!
 byte getPWM();					// возвращает величину ШИМ
-void setPeriod(int period);		// установить период ШИМ в миллисек. (по умолч. 1000мс == 1с)
+void setPeriod(unsigned long period);		// установить период ШИМ в миллисек. (по умолч. 1000мс == 1с)
 int getPeriod();				// получить период
 void setLevel(bool level);		// установить установить уровень реле (HIGH/LOW)
 ```
@@ -92,6 +92,7 @@ void loop() {
 <a id="versions"></a>
 ## Версии
 - v1.2 - исправлены мелкие ошибки с совместимостью
+- v1.2.1 - исправлена проблема установки периода значением больше чем тип int(32 767), т.е. теперь период можно устанавливать больше 32 сек.
 
 <a id="feedback"></a>
 ## Баги и обратная связь
