@@ -55,12 +55,12 @@ PWMrelay relay(пин);
 <a id="usage"></a>
 ## Use of use
 ```cpp
-PWMrelay(int pin, bool dir = false, int period = 1000);	// PIN, HIGH/LOW relay level, period
+PWMrelay(uint8_t pin, bool dir = false, uint16_t period = 1000);	// PIN, HIGH/LOW relay level, period
 void tick();					// tic, call as often as possible, controls the relay
-void setPWM(byte duty);			// set the PWM value, 0-255. At 0 and 255, the tick is inactive.
-byte getPWM();					// returns
-void setPeriod(int period);		// set the PWM period to a millisecond. (silence). 1000ms = = 1c)
-int getPeriod();				// period
+void setPWM(uint8_t duty);		// set the PWM value, 0-255. At 0 and 255, the tick is inactive.
+uint8_t getPWM();				// returns
+void setPeriod(uint16_t period);	// set the PWM period to a millisecond. (silence). 1000ms = = 1c)
+uint16_t getPeriod();			// period
 void setLevel(bool level);		// set the relay level (HIGH/LOW)
 ```
 

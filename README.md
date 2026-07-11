@@ -54,13 +54,13 @@ PWMrelay relay(пин);
 <a id="usage"></a>
 ## Использование
 ```cpp
-PWMrelay(int pin, bool dir = false, int period = 1000);	// пин, уровень реле HIGH/LOW, период
+PWMrelay(uint8_t pin, bool dir = false, uint16_t period = 1000);	// пин, уровень реле HIGH/LOW, период
 void tick();					// тик, вызывать как можно чаще, сам управляет реле
-void setPWM(byte duty);			// установить величину ШИМ, 0-255. При значении 0 и 255 тик неактивен!
-byte getPWM();					// возвращает величину ШИМ
-void setPeriod(int period);		// установить период ШИМ в миллисек. (по умолч. 1000мс == 1с)
-int getPeriod();				// получить период
-void setLevel(bool level);		// установить установить уровень реле (HIGH/LOW)
+void setPWM(uint8_t duty);		// установить величину ШИМ, 0-255. При значении 0 и 255 тик неактивен!
+uint8_t getPWM();				// возвращает величину ШИМ
+void setPeriod(uint16_t period);	// установить период ШИМ в миллисек. (по умолч. 1000мс == 1с)
+uint16_t getPeriod();			// получить период
+void setLevel(bool level);		// установить уровень реле (HIGH/LOW)
 ```
 
 <a id="example"></a>
